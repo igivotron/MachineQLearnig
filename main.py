@@ -195,7 +195,7 @@ def RL():
     cumul_reward_list = []
     actions_list = []
     states_list = []
-    game = Game(10, 10, 0) # 0.1 chance to go left or right instead of asked direction
+    game = Game(10, 10, 0) 
     for i in range(num_episodes):
         actions = []
         s = game.reset()
@@ -204,7 +204,7 @@ def RL():
         d = False
         while True:
             # on choisit une action aléatoire avec une certaine probabilité, qui décroit
-            # TODO : simplifier ça (pas clair)
+          
             Q2 = Q[s,:] + np.random.randn(1, actions_n)*(1. / (i +1))
             a = np.argmax(Q2)
             s1, reward, d, _ = game.move(a)
